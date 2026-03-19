@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)file:///C:/Users/ikediobi.oluoma-mary/Downloads/index.html.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CleanAble – Clean Communities, Brighter Nigeria</title>
+<link href="./index_files/css2" rel="stylesheet">
+<style>
+  :root {
+    --green: #1a7a4a;
+    --green-light: #2fa866;
+    --green-pale: #e8f5ee;
+    --green-mid: #b2ddc6;
+    --accent: #f4c542;
+    --accent-dark: #d9a820;
+    --white: #ffffff;
+    --off-white: #f7faf8;
+    --grey: #f0f4f2;
+    --grey-mid: #c8d8d0;
+    --text: #1a2e24;
+    --text-muted: #5a7a68;
+    --red: #e03e3e;
+    --blue: #2d7dd2;
+    --radius: 16px;
+    --shadow: 0 4px 24px rgba(26,122,74,0.10);
+    --shadow-lg: 0 12px 48px rgba(26,122,74,0.15);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--off-white); color: var(--text); min-height: 100vh; }
+  h1,h2,h3,h4 { font-family: 'Fraunces', serif; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(255,255,255,0.96); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--green-mid);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 32px; height: 64px;
+    box-shadow: 0 2px 12px rgba(26,122,74,0.07);
+  }
+  .nav-logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 800; color: var(--green); letter-spacing: -1px; cursor: pointer; }
+  .nav-logo span { color: var(--accent-dark); }
+  .nav-links { display: flex; gap: 4px; align-items: center; flex-wrap: wrap; }
+  .nav-links button {
+    background: none; border: none; font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem; font-weight: 500; color: var(--text-muted);
+    padding: 7px 12px; border-radius: 8px; cursor: pointer; transition: all 0.2s;
+  }
+  .nav-links button:hover, .nav-links button.active { background: var(--green-pale); color: var(--green); }
+  .nav-cta { background: var(--green) !important; color: white !important; border-radius: 10px !important; }
+  .nav-cta:hover { background: var(--green-light) !important; }
+
+  .page { display: none; padding-top: 64px; min-height: 100vh; animation: fadeIn 0.35s ease; }
+  .page.active { display: block; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+
+  .btn { display: inline-flex; align-items: center; gap: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 600; padding: 14px 28px; border-radius: 12px; border: none; cursor: pointer; transition: all 0.2s; }
+  .btn-primary { background: var(--accent); color: var(--text); }
+  .btn-primary:hover { background: #ffda68; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(244,197,66,0.4); }
+  .btn-outline { background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.3); }
+  .btn-outline:hover { background: rgba(255,255,255,0.2); transform: translateY(-2px); }
+  .btn-green { background: var(--green); color: white; }
+  .btn-green:hover { background: var(--green-light); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+  .btn-grey { background: var(--grey); color: var(--text); }
+  .btn-grey:hover { background: var(--grey-mid); }
+  .btn-sm { padding: 9px 18px; font-size: 0.83rem; border-radius: 8px; }
+  .btn-danger { background: #fde8e8; color: var(--red); }
+  .btn-danger:hover { background: #f8c5c5; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #0d4a2a 0%, #1a7a4a 55%, #2fa866 100%);
+    min-height: 88vh; display: flex; align-items: center; justify-content: center;
+    text-align: center; position: relative; overflow: hidden; padding: 80px 24px;
+  }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(244,197,66,0.08) 0%, transparent 70%); }
+  .hero-content { position: relative; z-index: 1; max-width: 720px; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); color: #d4f5e3; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.5px; padding: 6px 16px; border-radius: 100px; margin-bottom: 28px; backdrop-filter: blur(8px); }
+  .hero h1 { font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 800; color: white; line-height: 1.1; margin-bottom: 24px; }
+  .hero h1 em { font-style: italic; color: var(--accent); }
+  .hero p { font-size: 1.15rem; color: rgba(255,255,255,0.82); line-height: 1.7; margin-bottom: 40px; max-width: 540px; margin-left: auto; margin-right: auto; }
+  .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .hero-stats { display: flex; gap: 32px; justify-content: center; margin-top: 56px; flex-wrap: wrap; }
+  .hero-stat { text-align: center; }
+  .hero-stat strong { display: block; font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 800; color: white; }
+  .hero-stat span { font-size: 0.82rem; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* Watermark community illustration */
+  .watermark-community {
+    position: absolute; right: -30px; bottom: -20px; width: 380px; height: 340px;
+    opacity: 0.06; pointer-events: none; z-index: 0;
+  }
+
+  .section { padding: 80px 24px; max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 0.75rem; font-weight: 600; color: var(--green); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 12px; }
+  .section-title { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 700; color: var(--text); line-height: 1.2; margin-bottom: 16px; }
+  .section-sub { font-size: 1.05rem; color: var(--text-muted); line-height: 1.7; max-width: 560px; }
+  .section-header { margin-bottom: 56px; }
+
+  .card { background: white; border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); border: 1px solid var(--green-mid); transition: all 0.25s; }
+  .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; }
+  .feature-icon { width: 52px; height: 52px; border-radius: 14px; background: var(--green-pale); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 1.5rem; }
+  .feature-icon.accent { background: #fff8e1; }
+  .feature-icon.blue { background: #e8f2fc; }
+  .card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; color: var(--text); }
+  .card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+
+  /* AUTH */
+  .auth-container { min-height: calc(100vh - 64px); display: flex; align-items: center; justify-content: center; padding: 40px 24px; background: linear-gradient(160deg, var(--green-pale) 0%, white 60%); }
+  .auth-box { background: white; border-radius: 24px; padding: 48px 40px; width: 100%; max-width: 480px; box-shadow: var(--shadow-lg); border: 1px solid var(--green-mid); }
+  .auth-tabs { display: flex; background: var(--grey); border-radius: 12px; padding: 4px; margin-bottom: 36px; }
+  .auth-tab { flex: 1; text-align: center; padding: 10px; border-radius: 9px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: all 0.2s; color: var(--text-muted); }
+  .auth-tab.active { background: white; color: var(--green); box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .form-group { margin-bottom: 20px; }
+  .form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+  .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 16px; border: 1.5px solid var(--grey-mid); border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 0.92rem; color: var(--text); background: var(--off-white); transition: border-color 0.2s; outline: none; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--green); background: white; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .auth-submit { width: 100%; padding: 14px; background: var(--green); color: white; border: none; border-radius: 12px; font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 1rem; cursor: pointer; transition: all 0.2s; margin-top: 8px; }
+  .auth-submit:hover { background: var(--green-light); transform: translateY(-1px); }
+
+  .page-header { background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%); padding: 60px 24px 48px; color: white; text-align: center; position: relative; overflow: hidden; }
+  .page-header h1 { font-size: 2.4rem; font-weight: 800; margin-bottom: 12px; }
+  .page-header p { opacity: 0.85; font-size: 1rem; max-width: 480px; margin: 0 auto; }
+  .content-area { max-width: 860px; margin: 0 auto; padding: 48px 24px; }
+
+  .category-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 8px; }
+  .category-btn { padding: 20px 12px; border: 2px solid var(--grey-mid); border-radius: 14px; background: white; cursor: pointer; text-align: center; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
+  .category-btn:hover { border-color: var(--green); background: var(--green-pale); }
+  .category-btn.selected { border-color: var(--green); background: var(--green-pale); }
+  .category-btn .cat-icon { font-size: 2rem; display: block; margin-bottom: 8px; }
+  .category-btn .cat-label { font-size: 0.85rem; font-weight: 600; color: var(--text); }
+
+  .upload-zone { border: 2px dashed var(--grey-mid); border-radius: 14px; padding: 40px; text-align: center; cursor: pointer; transition: all 0.2s; background: var(--off-white); }
+  .upload-zone:hover { border-color: var(--green); background: var(--green-pale); }
+  .upload-zone .upload-icon { font-size: 2.5rem; margin-bottom: 12px; }
+  .upload-zone p { color: var(--text-muted); font-size: 0.9rem; }
+
+  .alert { padding: 16px 20px; border-radius: 12px; font-size: 0.9rem; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+  .alert-success { background: var(--green-pale); color: var(--green); border: 1px solid var(--green-mid); }
+  .alert-warning { background: #fff8e1; color: #8a6700; border: 1px solid #f4c542; }
+
+  .report-card { background: white; border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); border: 1px solid var(--green-mid); margin-bottom: 20px; }
+  .report-card-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 14px; gap: 12px; }
+  .report-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--green); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; }
+  .reporter-info strong { font-size: 0.9rem; font-weight: 600; display: block; }
+  .reporter-info span { font-size: 0.78rem; color: var(--text-muted); }
+  .badge { display: inline-flex; align-items: center; gap: 5px; padding: 4px 12px; border-radius: 100px; font-size: 0.75rem; font-weight: 600; }
+  .badge-plastic { background: #e3f0ff; color: #2d7dd2; }
+  .badge-organic { background: #e8f5ee; color: var(--green); }
+  .badge-mixed { background: #fff3e0; color: #e07b20; }
+  .badge-open { background: var(--green-pale); color: var(--green); }
+  .badge-flagged { background: #fde8e8; color: var(--red); }
+  .report-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 14px; }
+  .report-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px solid var(--grey); font-size: 0.82rem; color: var(--text-muted); flex-wrap: wrap; gap: 8px; }
+
+  .event-card { background: white; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--green-mid); transition: all 0.25s; }
+  .event-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .event-banner { height: 8px; background: linear-gradient(90deg, var(--green) 0%, var(--green-light) 100%); }
+  .event-body { padding: 24px; }
+  .event-date { font-size: 0.8rem; font-weight: 600; color: var(--green); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .event-title { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; }
+  .event-meta { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 16px; }
+  .event-meta-item { display: flex; align-items: center; gap: 6px; font-size: 0.82rem; color: var(--text-muted); }
+  .event-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
+  .event-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; border-top: 1px solid var(--grey); }
+  .participant-count { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted); }
+  .pdot { width: 26px; height: 26px; border-radius: 50%; border: 2px solid white; background: var(--green-mid); display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 700; color: var(--green); margin-left: -6px; }
+
+  .knowledge-section { margin-bottom: 48px; }
+  .knowledge-section h2 { font-size: 1.5rem; font-weight: 700; color: var(--text); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .knowledge-items { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+  .knowledge-item { background: white; border-radius: 14px; padding: 24px; text-align: center; box-shadow: var(--shadow); border: 1px solid var(--green-mid); transition: all 0.2s; cursor: pointer; }
+  .knowledge-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--green); }
+  .knowledge-item .ki-icon { font-size: 2.4rem; margin-bottom: 12px; display: block; }
+  .knowledge-item h4 { font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+  .knowledge-item p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; }
+
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin-bottom: 48px; }
+  .stat-card { background: white; border-radius: var(--radius); padding: 28px 24px; box-shadow: var(--shadow); border: 1px solid var(--green-mid); }
+  .stat-icon { font-size: 2rem; margin-bottom: 12px; }
+  .stat-value { font-family: 'Fraunces', serif; font-size: 2.4rem; font-weight: 800; color: var(--green); line-height: 1; margin-bottom: 6px; }
+  .stat-label { font-size: 0.85rem; color: var(--text-muted); font-weight: 500; }
+  .stat-change { font-size: 0.78rem; color: var(--green-light); font-weight: 600; margin-top: 4px; }
+
+  .map-container { background: white; border-radius: var(--radius); padding: 32px; box-shadow: var(--shadow); border: 1px solid var(--green-mid); margin-bottom: 40px; }
+  .map-container h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; }
+  .map-legend { display: flex; gap: 20px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+  .map-legend-item { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; color: var(--text-muted); }
+  .legend-dot { width: 12px; height: 12px; border-radius: 50%; }
+
+  .profile-header { background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%); padding: 60px 24px 100px; text-align: center; color: white; position: relative; overflow: hidden; }
+  .profile-avatar-lg { width: 90px; height: 90px; border-radius: 50%; background: rgba(255,255,255,0.2); border: 4px solid rgba(255,255,255,0.5); display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 800; font-family: 'Fraunces', serif; margin: 0 auto 16px; color: white; }
+  .profile-name { font-size: 1.8rem; font-weight: 800; margin-bottom: 8px; }
+  .profile-lga { font-size: 0.9rem; opacity: 0.8; }
+  .profile-content { max-width: 860px; margin: -48px auto 0; padding: 0 24px 48px; position: relative; z-index: 1; }
+  .portfolio-card { background: white; border-radius: 20px; padding: 36px; box-shadow: var(--shadow-lg); border: 1px solid var(--green-mid); margin-bottom: 24px; }
+  .contribution-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 32px; }
+  .contrib-stat { text-align: center; padding: 20px; background: var(--green-pale); border-radius: 14px; }
+  .contrib-stat strong { font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 800; color: var(--green); display: block; }
+  .contrib-stat span { font-size: 0.8rem; color: var(--text-muted); }
+
+  .opp-card { background: white; border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); border: 1px solid var(--green-mid); transition: all 0.25s; margin-bottom: 20px; display: flex; gap: 20px; align-items: flex-start; }
+  .opp-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+  .opp-logo { width: 56px; height: 56px; border-radius: 14px; background: var(--green-pale); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; flex-shrink: 0; }
+  .opp-content { flex: 1; }
+  .opp-content h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; }
+  .opp-org { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px; }
+  .opp-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+  .opp-tag { background: var(--grey); color: var(--text-muted); font-size: 0.75rem; font-weight: 600; padding: 4px 12px; border-radius: 100px; }
+  .opp-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px solid var(--grey); flex-wrap: wrap; gap: 10px; }
+  .deadline { font-size: 0.8rem; color: var(--text-muted); }
+
+  .admin-sidebar { width: 220px; background: white; border-right: 1px solid var(--green-mid); min-height: calc(100vh - 64px); padding: 24px 0; flex-shrink: 0; }
+  .admin-layout { display: flex; min-height: calc(100vh - 64px); }
+  .admin-main { flex: 1; padding: 32px; background: var(--off-white); overflow: auto; }
+  .sidebar-nav { list-style: none; }
+  .sidebar-nav li button { display: flex; align-items: center; gap: 12px; padding: 12px 20px; font-size: 0.88rem; font-weight: 500; color: var(--text-muted); cursor: pointer; background: none; border: none; width: 100%; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
+  .sidebar-nav li button:hover, .sidebar-nav li button.active { background: var(--green-pale); color: var(--green); }
+  .sidebar-nav li button.active { font-weight: 600; }
+  .admin-section-title { font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 700; margin-bottom: 24px; color: var(--text); }
+  .admin-stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin-bottom: 32px; }
+  .admin-stat { background: white; border-radius: 14px; padding: 20px; box-shadow: var(--shadow); border: 1px solid var(--green-mid); }
+  .admin-stat .as-val { font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 800; color: var(--green); }
+  .admin-stat .as-lbl { font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; }
+  .data-table { background: white; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--green-mid); overflow: hidden; overflow-x: auto; }
+  .data-table table { width: 100%; border-collapse: collapse; min-width: 600px; }
+  .data-table th { background: var(--green-pale); text-align: left; padding: 14px 18px; font-size: 0.8rem; font-weight: 700; color: var(--green); text-transform: uppercase; letter-spacing: 0.5px; }
+  .data-table td { padding: 14px 18px; font-size: 0.88rem; border-bottom: 1px solid var(--grey); color: var(--text); }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: var(--off-white); }
+
+  footer { background: var(--text); color: rgba(255,255,255,0.7); padding: 48px 24px; text-align: center; }
+  footer .footer-logo { font-family: 'Fraunces', serif; font-size: 1.8rem; font-weight: 800; color: white; margin-bottom: 12px; }
+  footer p { font-size: 0.88rem; margin-bottom: 4px; }
+
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 2000; align-items: center; justify-content: center; padding: 24px; }
+  .modal-overlay.open { display: flex; }
+  .modal { background: white; border-radius: 20px; padding: 40px; max-width: 520px; width: 100%; box-shadow: 0 24px 64px rgba(0,0,0,0.2); animation: fadeIn 0.2s ease; }
+  .modal h2 { font-size: 1.5rem; margin-bottom: 8px; }
+  .modal p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px; }
+  .modal-actions { display: flex; gap: 12px; justify-content: flex-end; margin-top: 24px; }
+
+  .tabs { display: flex; gap: 4px; background: var(--grey); border-radius: 12px; padding: 4px; margin-bottom: 32px; width: fit-content; }
+  .tab-btn { padding: 10px 18px; border-radius: 9px; font-weight: 600; font-size: 0.85rem; cursor: pointer; background: none; border: none; color: var(--text-muted); font-family: 'DM Sans', sans-serif; transition: all 0.2s; }
+  .tab-btn.active { background: white; color: var(--green); box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .tag-list { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+  .tag { background: var(--green-pale); color: var(--green); font-size: 0.78rem; font-weight: 600; padding: 5px 14px; border-radius: 100px; }
+
+  @media (max-width: 640px) {
+    nav { padding: 0 16px; }
+    .nav-links button:not(.nav-cta) { display: none; }
+    .form-row { grid-template-columns: 1fr; }
+    .auth-box { padding: 28px 20px; }
+    .admin-sidebar { display: none; }
+    .contribution-stats { grid-template-columns: 1fr; }
+    .category-grid { grid-template-columns: repeat(2, 1fr); }
+    .opp-card { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo" onclick="showPage(&#39;home&#39;)">Clean<span>Able</span></div>
+  <div class="nav-links">
+    <button onclick="showPage(&#39;home&#39;)" class="active" id="nav-home">Home</button>
+    <button onclick="showPage(&#39;report&#39;)" id="nav-report">Report</button>
+    <button onclick="showPage(&#39;initiatives&#39;)" id="nav-initiatives">Cleanups</button>
+    <button onclick="showPage(&#39;knowledge&#39;)" id="nav-knowledge">Knowledge</button>
+    <button onclick="showPage(&#39;impact&#39;)" id="nav-impact">Impact</button>
+    <button onclick="showPage(&#39;profile&#39;)" id="nav-profile">My Profile</button>
+    <button onclick="showPage(&#39;opportunities&#39;)" id="nav-opps">Opportunities</button>
+    <button onclick="showPage(&#39;admin&#39;)" id="nav-admin">Admin</button>
+    <button class="nav-cta" onclick="showPage(&#39;auth&#39;)">Sign Up</button>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div id="page-home" class="page active">
+  <section class="hero">
+    <!-- Community watermark illustration -->
+    <svg class="watermark-community" viewBox="0 0 380 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Adult male -->
+      <circle cx="70" cy="120" r="26" fill="white"></circle>
+      <rect x="44" y="146" width="52" height="72" rx="10" fill="white"></rect>
+      <rect x="34" y="152" width="18" height="56" rx="9" fill="white"></rect>
+      <rect x="78" y="152" width="18" height="56" rx="9" fill="white"></rect>
+      <rect x="50" y="218" width="18" height="60" rx="9" fill="white"></rect>
+      <rect x="70" y="218" width="18" height="60" rx="9" fill="white"></rect>
+      <!-- Woman with skirt -->
+      <circle cx="160" cy="110" r="26" fill="white"></circle>
+      <path d="M126 142 Q160 210 194 142 Z" fill="white"></path>
+      <rect x="149" y="207" width="16" height="62" rx="8" fill="white"></rect>
+      <rect x="165" y="207" width="16" height="62" rx="8" fill="white"></rect>
+      <rect x="118" y="148" width="16" height="50" rx="8" fill="white"></rect>
+      <rect x="196" y="148" width="16" height="50" rx="8" fill="white"></rect>
+      <!-- Teen/Youth -->
+      <circle cx="250" cy="130" r="22" fill="white"></circle>
+      <rect x="228" y="152" width="44" height="60" rx="9" fill="white"></rect>
+      <rect x="220" y="158" width="14" height="48" rx="7" fill="white"></rect>
+      <rect x="266" y="158" width="14" height="48" rx="7" fill="white"></rect>
+      <rect x="234" y="212" width="14" height="54" rx="7" fill="white"></rect>
+      <rect x="252" y="212" width="14" height="54" rx="7" fill="white"></rect>
+      <!-- Child -->
+      <circle cx="330" cy="152" r="18" fill="white"></circle>
+      <rect x="312" y="170" width="36" height="48" rx="8" fill="white"></rect>
+      <rect x="305" y="176" width="12" height="38" rx="6" fill="white"></rect>
+      <rect x="341" y="176" width="12" height="38" rx="6" fill="white"></rect>
+      <rect x="316" y="218" width="12" height="44" rx="6" fill="white"></rect>
+      <rect x="332" y="218" width="12" height="44" rx="6" fill="white"></rect>
+      <!-- Leaves -->
+      <ellipse cx="190" cy="60" rx="40" ry="18" fill="white" transform="rotate(-25 190 60)"></ellipse>
+      <ellipse cx="190" cy="60" rx="40" ry="18" fill="white" transform="rotate(25 190 60)"></ellipse>
+      <ellipse cx="80" cy="52" rx="30" ry="14" fill="white" transform="rotate(-20 80 52)"></ellipse>
+    </svg>
+    <div class="hero-content">
+      <div class="hero-badge">🇳🇬 Nigeria's Community Environmental Platform</div>
+      <h1>Clean Communities,<br><em>Brighter Nigeria</em></h1>
+      <p>Join thousands of Nigerians reporting waste issues, organising cleanups, and building a greener tomorrow — one LGA at a time.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="showPage(&#39;report&#39;)">📍 Report an Issue</button>
+        <button class="btn btn-outline" onclick="showPage(&#39;initiatives&#39;)">🌿 Find Cleanup Events</button>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><strong>2,847</strong><span>Reports Filed</span></div>
+        <div class="hero-stat"><strong>143</strong><span>Cleanup Events</span></div>
+        <div class="hero-stat"><strong>8,400+</strong><span>Volunteers</span></div>
+        <div class="hero-stat"><strong>36</strong><span>Active LGAs</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-label">How it works</div>
+      <div class="section-title">Everyone has a role to play</div>
+      <div class="section-sub">CleanAble connects citizens, organisations, and communities to create measurable environmental change across Nigeria.</div>
+    </div>
+    <div class="grid-3">
+      <div class="card"><div class="feature-icon">📍</div><h3>Report Waste Issues</h3><p>Spot a dumping site or blocked drain? Report it in seconds with location, photo, and category. Your report goes directly into the community feed.</p></div>
+      <div class="card"><div class="feature-icon accent">🤝</div><h3>Join Cleanup Events</h3><p>Discover community cleanup initiatives near your LGA and sign up to volunteer. Every hand makes a difference.</p></div>
+      <div class="card"><div class="feature-icon blue">🏆</div><h3>Build Your Portfolio</h3><p>Track all your contributions and export a verified environmental portfolio for CVs, scholarships, and NGO opportunities.</p></div>
+      <div class="card"><div class="feature-icon">📚</div><h3>Learn Waste Sorting</h3><p>Access our Knowledge Hub to learn proper waste segregation — plastics, organics, and general waste explained clearly.</p></div>
+      <div class="card"><div class="feature-icon accent">📊</div><h3>Track Impact</h3><p>See real-time environmental impact data across Nigeria's LGAs. Watch your community's numbers grow over time.</p></div>
+      <div class="card"><div class="feature-icon blue">🏢</div><h3>Organisation Hub</h3><p>NGOs can post volunteer opportunities, sponsor initiatives, and recruit active youth changemakers in their region.</p></div>
+    </div>
+  </div>
+
+  <div style="background: var(--green); padding: 80px 24px; text-align: center; position: relative; overflow: hidden;">
+    <div style="max-width: 600px; margin: 0 auto; position: relative; z-index: 1;">
+      <div class="section-label" style="color: var(--green-mid);">Join the movement</div>
+      <h2 style="font-family: &#39;Fraunces&#39;, serif; font-size: 2.4rem; font-weight: 800; color: white; margin-bottom: 20px;">Your community needs you today</h2>
+      <p style="color: rgba(255,255,255,0.8); font-size: 1rem; margin-bottom: 36px; line-height: 1.7;">Environmental change starts with one person deciding to act. Be that person for your community.</p>
+      <button class="btn btn-primary" onclick="showPage(&#39;auth&#39;)">Get Started Free →</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-logo">Clean<span style="color: var(--accent);">Able</span></div>
+    <p>Empowering Nigerian communities through collective environmental action.</p>
+    <p style="margin-top: 16px; font-size: 0.78rem;">© 2026 CleanAble Nigeria · All rights reserved</p>
+  </footer>
+</div>
+
+<!-- AUTH -->
+<div id="page-auth" class="page">
+  <div class="auth-container">
+    <div class="auth-box">
+      <div style="text-align: center; margin-bottom: 32px;">
+        <div style="font-family: &#39;Fraunces&#39;, serif; font-size: 1.8rem; font-weight: 800; color: var(--green);">Clean<span style="color: var(--accent-dark);">Able</span></div>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">Environmental impact starts here</p>
+      </div>
+      <div class="auth-tabs">
+        <div class="auth-tab active" id="tab-signup" onclick="switchAuthTab(&#39;signup&#39;)">Create Account</div>
+        <div class="auth-tab" id="tab-login" onclick="switchAuthTab(&#39;login&#39;)">Log In</div>
+      </div>
+      <div id="signup-form">
+        <div class="form-group"><label>Full Name</label><input type="text" placeholder="e.g. Adaeze Okonkwo"></div>
+        <div class="form-group"><label>Email Address</label><input type="email" placeholder="adaeze@example.com"></div>
+        <div class="form-group"><label>Password</label><input type="password" placeholder="Create a strong password"></div>
+        <div class="form-group"><label>Account Type</label><select><option>Community Member</option><option>Organisation / NGO</option></select></div>
+        <div class="form-row">
+          <div class="form-group"><label>State</label>
+            <select><option>Oyo</option><option>Lagos</option><option>Abuja (FCT)</option><option>Rivers</option><option>Kano</option><option>Enugu</option><option>Delta</option><option>Edo</option><option>Anambra</option></select>
+          </div>
+          <div class="form-group"><label>LGA</label>
+            <select><option>Ibadan North</option><option>Ibadan South-West</option><option>Ibadan North-East</option><option>Ogbomosho North</option><option>Oyo East</option><option>Ido</option><option>Akinyele</option></select>
+          </div>
+        </div>
+        <button class="auth-submit" onclick="showToast(&#39;Account created! Welcome to CleanAble 🌿&#39;); showPage(&#39;home&#39;)">Create My Account →</button>
+      </div>
+      <div id="login-form" style="display:none">
+        <div class="form-group"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
+        <div class="form-group"><label>Password</label><input type="password" placeholder="Your password"></div>
+        <button class="auth-submit" onclick="showToast(&#39;Welcome back! 👋&#39;); showPage(&#39;home&#39;)">Log In →</button>
+        <p style="text-align: center; margin-top: 16px; font-size: 0.85rem; color: var(--text-muted);">Forgot password? <a href="file:///C:/Users/ikediobi.oluoma-mary/Downloads/index.html.html#" style="color: var(--green); font-weight: 600;">Reset here</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REPORT -->
+<div id="page-report" class="page">
+  <div class="page-header">
+    <h1>🗑️ Report a Waste Issue</h1>
+    <p>Help keep your community clean by reporting environmental sanitation problems near you.</p>
+  </div>
+  <div class="content-area">
+    <div id="report-success" class="alert alert-success" style="display:none">
+      ✅ <strong>Report submitted!</strong> Your report is now visible in the community feed below.
+    </div>
+    <div class="card" style="margin-bottom: 32px;">
+      <h2 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 24px;">Submit New Report</h2>
+      <div class="form-group"><label>📍 Location Description</label><input type="text" placeholder="e.g. Near Agodi Gate junction, Ibadan North LGA"></div>
+      <div class="form-row">
+        <div class="form-group"><label>State</label><select><option>Oyo</option><option>Lagos</option><option>Abuja (FCT)</option><option>Rivers</option><option>Kano</option></select></div>
+        <div class="form-group"><label>LGA</label><select><option>Ibadan North</option><option>Ibadan South-West</option><option>Ogbomosho North</option></select></div>
+      </div>
+      <div class="form-group"><label>🗑️ Waste Category</label>
+        <div class="category-grid">
+          <div class="category-btn selected" onclick="selectCategory(this)"><span class="cat-icon">🧴</span><span class="cat-label">Plastic Waste</span></div>
+          <div class="category-btn" onclick="selectCategory(this)"><span class="cat-icon">🍃</span><span class="cat-label">Organic Waste</span></div>
+          <div class="category-btn" onclick="selectCategory(this)"><span class="cat-icon">♻️</span><span class="cat-label">Mixed Waste</span></div>
+        </div>
+      </div>
+      <div class="form-group"><label>📝 Description</label><textarea placeholder="Describe the waste problem — size, severity, how long it&#39;s been there..."></textarea></div>
+      <div class="form-group"><label>📸 Upload Image (Optional)</label>
+        <div class="upload-zone" onclick="showToast(&#39;Image upload ready&#39;)">
+          <div class="upload-icon">📷</div>
+          <p><strong>Tap to upload</strong> or drag and drop</p>
+          <p style="font-size: 0.78rem; margin-top: 6px;">JPG, PNG up to 5MB</p>
+        </div>
+      </div>
+      <button class="btn btn-green" style="width:100%; justify-content:center; font-size:1rem; padding:16px;" onclick="submitReport()">Submit Report →</button>
+    </div>
+
+    <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 20px; font-family: &#39;Fraunces&#39;, serif;">📢 Community Feed</h2>
+    <div id="reports-feed">
+      <div class="report-card">
+        <div class="report-card-header">
+          <div class="report-meta"><div class="avatar">AO</div><div class="reporter-info"><strong>Adaeze Okonkwo</strong><span>Ibadan North LGA · 2 hours ago</span></div></div>
+          <span class="badge badge-plastic">🧴 Plastic</span>
+        </div>
+        <div class="report-desc">Large pile of sachet water nylons and plastic bottles dumped near the drainage channel behind UITH. The heap has been growing for about two weeks and is now blocking water flow.</div>
+        <div class="report-footer"><span>📍 Near UITH Road junction, Ibadan North</span><span class="badge badge-open">● Open</span></div>
+      </div>
+      <div class="report-card">
+        <div class="report-card-header">
+          <div class="report-meta"><div class="avatar" style="background:#e07b20;">KA</div><div class="reporter-info"><strong>Kunle Adeleke</strong><span>Ogbomosho North LGA · Yesterday</span></div></div>
+          <span class="badge badge-organic">🍃 Organic</span>
+        </div>
+        <div class="report-desc">Rotting food waste and market refuse piled beside the Ogbomosho motor park entrance. Flies and odour are affecting residents and traders in the area.</div>
+        <div class="report-footer"><span>📍 Ogbomosho Motor Park entrance</span><span class="badge badge-open">● Open</span></div>
+      </div>
+      <div class="report-card">
+        <div class="report-card-header">
+          <div class="report-meta"><div class="avatar" style="background:#2d7dd2;">FN</div><div class="reporter-info"><strong>Fatima Nwosu</strong><span>Ido LGA · 3 days ago</span></div></div>
+          <span class="badge badge-mixed">♻️ Mixed</span>
+        </div>
+        <div class="report-desc">Illegal dumping site off Ido-Eruwa road — mixed construction rubble, plastic, and household waste. Getting bigger each week with no intervention.</div>
+        <div class="report-footer"><span>📍 Ido-Eruwa Road, Ido LGA</span><span class="badge badge-open">● Open</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INITIATIVES -->
+<div id="page-initiatives" class="page">
+  <div class="page-header">
+    <h1>🌿 Cleanup Initiatives</h1>
+    <p>Find and join community cleanup events near you, or create your own initiative.</p>
+  </div>
+  <div class="content-area" style="max-width: 1060px;">
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom: 32px; flex-wrap: wrap; gap: 16px;">
+      <div class="tabs">
+        <button class="tab-btn active">All Events</button>
+        <button class="tab-btn">Upcoming</button>
+        <button class="tab-btn">My Events</button>
+      </div>
+      <button class="btn btn-green btn-sm" onclick="openModal(&#39;create-event-modal&#39;)">+ Create Event</button>
+    </div>
+    <div class="grid-2">
+      <div class="event-card">
+        <div class="event-banner"></div>
+        <div class="event-body">
+          <div class="event-date">📅 Saturday, 15 March 2025</div>
+          <div class="event-title">Agodi Gardens Clean-Up Drive</div>
+          <div class="event-meta"><div class="event-meta-item">📍 Ibadan North LGA</div><div class="event-meta-item">🏢 EcoNigeria Foundation</div></div>
+          <div class="event-desc">Join us for a 4-hour community cleanup around Agodi Gardens and surrounding streets. Gloves and bags provided. All ages welcome!</div>
+          <div class="event-footer">
+            <div class="participant-count"><div style="display:flex;"><div class="pdot">AO</div><div class="pdot">KA</div><div class="pdot">FN</div></div><span>34 joined</span></div>
+            <button class="btn btn-green btn-sm" onclick="joinEvent(this)">Join Cleanup</button>
+          </div>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-banner" style="background: linear-gradient(90deg, #2d7dd2, #5ba4e8);"></div>
+        <div class="event-body">
+          <div class="event-date">📅 Sunday, 22 March 2025</div>
+          <div class="event-title">Ibadan Waterway Restoration</div>
+          <div class="event-meta"><div class="event-meta-item">📍 Ibadan South-West LGA</div><div class="event-meta-item">🏢 WaterWatch Nigeria</div></div>
+          <div class="event-desc">Clearing blocked drainage channels and riverbanks around Gbagi market to reduce flooding risk during the rainy season.</div>
+          <div class="event-footer">
+            <div class="participant-count"><div style="display:flex;"><div class="pdot">BB</div><div class="pdot">EC</div></div><span>19 joined</span></div>
+            <button class="btn btn-green btn-sm" onclick="joinEvent(this)">Join Cleanup</button>
+          </div>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-banner" style="background: linear-gradient(90deg, #e07b20, #f4a040);"></div>
+        <div class="event-body">
+          <div class="event-date">📅 Saturday, 29 March 2025</div>
+          <div class="event-title">Ogbomosho Market Cleanup Day</div>
+          <div class="event-meta"><div class="event-meta-item">📍 Ogbomosho North LGA</div><div class="event-meta-item">🏢 Ogbomosho Youth Initiative</div></div>
+          <div class="event-desc">Monthly cleanup of Ogbomosho central market area and surrounding streets. Focus on organic waste and proper bin usage education.</div>
+          <div class="event-footer">
+            <div class="participant-count"><div style="display:flex;"><div class="pdot">TO</div><div class="pdot">MI</div><div class="pdot">SA</div></div><span>52 joined</span></div>
+            <button class="btn btn-green btn-sm" onclick="joinEvent(this)">Join Cleanup</button>
+          </div>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-banner" style="background: linear-gradient(90deg, #7c3aed, #a78bfa);"></div>
+        <div class="event-body">
+          <div class="event-date">📅 Friday, 4 April 2025</div>
+          <div class="event-title">Akinyele School Grounds Beautification</div>
+          <div class="event-meta"><div class="event-meta-item">📍 Akinyele LGA</div><div class="event-meta-item">🏢 GreenSchools Nigeria</div></div>
+          <div class="event-desc">Tree planting and waste clearance at five public schools in Akinyele. Help create cleaner, greener learning environments for children.</div>
+          <div class="event-footer">
+            <div class="participant-count"><div style="display:flex;"><div class="pdot">LO</div><div class="pdot">BK</div></div><span>28 joined</span></div>
+            <button class="btn btn-green btn-sm" onclick="joinEvent(this)">Join Cleanup</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- KNOWLEDGE HUB -->
+<div id="page-knowledge" class="page">
+  <div class="page-header">
+    <h1>📚 Environmental Knowledge Hub</h1>
+    <p>Learn proper waste sorting practices and help reduce landfill overflow across Nigeria.</p>
+  </div>
+  <div class="content-area" style="max-width: 960px;">
+    <div class="alert alert-warning" style="margin-bottom: 40px;">
+      💡 <strong>Did you know?</strong> Proper waste sorting can reduce landfill waste by up to 70% and creates jobs in Nigeria's growing recycling sector.
+    </div>
+    <div class="knowledge-section">
+      <h2>🧴 Plastic Waste <span style="font-family:&#39;DM Sans&#39;;font-size:0.82rem;font-weight:500;color:var(--text-muted);background:#e3f0ff;padding:4px 12px;border-radius:100px;">Recyclable</span></h2>
+      <div class="knowledge-items">
+        <div class="knowledge-item"><span class="ki-icon">🍶</span><h4>Water Bottles (PET)</h4><p>Rinse before disposal. Accepted by most recyclers. High resale value.</p></div>
+        <div class="knowledge-item"><span class="ki-icon">🛍️</span><h4>Nylon / Polythene Bags</h4><p>Bundle together before disposal. Many supermarkets have drop-off points.</p></div>
+        <div class="knowledge-item"><span class="ki-icon">📦</span><h4>Packaging Materials</h4><p>Flatten cardboard. Remove food residue from containers before sorting.</p></div>
+        <div class="knowledge-item"><span class="ki-icon">🪣</span><h4>Plastic Buckets</h4><p>Clean and separate from general waste. HDPE plastics are highly recyclable.</p></div>
+      </div>
+    </div>
+    <div class="knowledge-section">
+      <h2>🍃 Organic Waste <span style="font-family:&#39;DM Sans&#39;;font-size:0.82rem;font-weight:500;color:var(--text-muted);background:var(--green-pale);padding:4px 12px;border-radius:100px;">Compostable</span></h2>
+      <div class="knowledge-items">
+        <div class="knowledge-item"><span class="ki-icon">🍎</span><h4>Food Scraps</h4><p>Fruit peels, vegetable cuttings, and leftovers can be composted for garden use.</p></div>
+        <div class="knowledge-item"><span class="ki-icon">🌿</span><h4>Plant &amp; Garden Waste</h4><p>Leaves, grass clippings, and plant trimmings are excellent compost material.</p></div>
+        <div class="knowledge-item"><span class="ki-icon">☕</span><h4>Coffee &amp; Tea Waste</h4><p>Coffee grounds and tea bags are nitrogen-rich and excellent for composting.</p></div>
+        <div class="knowledge-item"><span class="ki-icon">🥚</span><h4>Eggshells</h4><p>Eggshells add calcium to compost. Bones should be disposed of separately.</p></div>
+      </div>
+    </div>
+    <div class="knowledge-section">
+      <h2>🗑️ General Waste <span style="font-family:&#39;DM Sans&#39;;font-size:0.82rem;font-weight:500;color:var(--text-muted);background:#f0f0f0;padding:4px 12px;border-radius:100px;">Non-recyclable</span></h2>
+      <div class="knowledge-items">
+        <div class="knowledge-item"><span class="ki-icon">🩹</span><h4>Sanitary Items</h4><p>Wrap securely before disposal. These cannot be recycled or composted.</p></div>
+        <div class="knowledge-item"><span class="ki-icon">🪟</span><h4>Broken Glass &amp; Ceramics</h4><p>Wrap in newspaper before disposing. Do not mix with recyclable glass.</p></div>
+        <div class="knowledge-item"><span class="ki-icon">🧻</span><h4>Soiled Paper Products</h4><p>Used tissue and greasy takeaway bags go into general waste only.</p></div>
+        <div class="knowledge-item"><span class="ki-icon">🔋</span><h4>Electronics &amp; Batteries</h4><p>Take to designated e-waste collection points — contain toxic materials.</p></div>
+      </div>
+    </div>
+    <div class="card" style="background: linear-gradient(135deg, var(--green-pale), white); text-align: center; padding: 48px;">
+      <div style="font-size: 3rem; margin-bottom: 16px;">🌍</div>
+      <h3 style="font-size: 1.4rem; margin-bottom: 12px;">The 3R Principle</h3>
+      <p style="color: var(--text-muted); max-width: 480px; margin: 0 auto 28px; line-height: 1.7;">Before disposing of any item, ask yourself: Can I <strong>Reduce</strong> my use of it? Can I <strong>Reuse</strong> it? Can I <strong>Recycle</strong> it?</p>
+      <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+        <div style="background: white; border-radius: 14px; padding: 20px 32px; box-shadow: var(--shadow);"><strong style="font-size: 1.5rem; color: var(--green); font-family: &#39;Fraunces&#39;, serif;">Reduce</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Buy less, waste less</span></div>
+        <div style="background: white; border-radius: 14px; padding: 20px 32px; box-shadow: var(--shadow);"><strong style="font-size: 1.5rem; color: var(--green); font-family: &#39;Fraunces&#39;, serif;">Reuse</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Find new purpose</span></div>
+        <div style="background: white; border-radius: 14px; padding: 20px 32px; box-shadow: var(--shadow);"><strong style="font-size: 1.5rem; color: var(--green); font-family: &#39;Fraunces&#39;, serif;">Recycle</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">Close the loop</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- IMPACT DASHBOARD -->
+<div id="page-impact" class="page">
+  <div class="page-header">
+    <h1>📊 Environmental Impact Dashboard</h1>
+    <p>Real-time overview of CleanAble activity across Nigerian communities.</p>
+  </div>
+  <div class="content-area" style="max-width: 1060px;">
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-icon">📍</div><div class="stat-value">2,847</div><div class="stat-label">Waste Reports Filed</div><div class="stat-change">↑ +143 this week</div></div>
+      <div class="stat-card"><div class="stat-icon">🌿</div><div class="stat-value">143</div><div class="stat-label">Cleanup Initiatives</div><div class="stat-change">↑ +12 this month</div></div>
+      <div class="stat-card"><div class="stat-icon">👥</div><div class="stat-value">8,412</div><div class="stat-label">Active Volunteers</div><div class="stat-change">↑ +627 this month</div></div>
+      <div class="stat-card"><div class="stat-icon">🗺️</div><div class="stat-value">36</div><div class="stat-label">Participating LGAs</div><div class="stat-change">↑ +4 this month</div></div>
+      <div class="stat-card"><div class="stat-icon">🏢</div><div class="stat-value">84</div><div class="stat-label">Partner Organisations</div><div class="stat-change">↑ +7 this month</div></div>
+      <div class="stat-card"><div class="stat-icon">♻️</div><div class="stat-value">12.4t</div><div class="stat-label">Waste Diverted (est.)</div><div class="stat-change">↑ Cumulative total</div></div>
+    </div>
+
+    <div class="map-container">
+      <h3>🗺️ Activity Map — Nigeria LGAs</h3>
+      <svg viewBox="0 0 700 580" style="width:100%; max-height:440px; background: #e8f5f0; border-radius: 12px;">
+        <!--
+          Nigeria real shape.
+          Bounding box: lon 2.7°E (W) to 14.7°E (E), lat 4.2°N (S) to 13.9°N (N)
+          SVG mapping: x = (lon - 2.7) / 12 * 580 + 60
+                       y = (13.9 - lat) / 9.7 * 480 + 50
+          Key shape features:
+          - Western border runs almost straight N-S (lon ~2.7°)
+          - Northern border is fairly straight ~lat 13.9° from W to near lon 14°, then curves SE to Lake Chad
+          - Eastern border runs S from Lake Chad area, bulges east (Cameroon), then SW
+          - Southern coast: Gulf of Guinea, Niger Delta juts south around lon 5-8°
+        -->
+        <path d="
+          M 60,518
+          C 62,508 64,498 64,488
+          C 64,475 62,462 63,450
+          C 64,438 68,430 68,420
+          C 68,410 66,400 66,390
+          C 66,380 68,370 70,360
+          C 72,350 72,342 70,334
+          C 68,326 66,318 66,308
+          C 66,298 68,290 70,280
+          C 72,270 74,260 76,250
+          C 78,240 80,232 82,222
+          C 84,212 84,202 84,192
+          C 84,182 82,172 82,162
+          C 82,152 84,142 88,134
+          C 92,126 96,120 100,112
+          C 104,104 108,98  112,92
+          C 116,86  122,82  130,80
+          C 138,78  146,78  154,78
+          C 162,78  170,80  178,80
+          C 186,80  194,78  200,74
+          C 206,70  210,64  216,60
+          C 222,56  230,54  238,52
+          C 250,50  262,50  274,50
+          C 286,50  298,50  310,50
+          C 322,50  334,50  346,50
+          C 358,50  370,50  382,52
+          C 394,54  406,56  418,58
+          C 430,60  442,62  454,64
+          C 466,66  476,68  486,72
+          C 498,76  508,82  516,90
+          C 524,98  530,108 534,118
+          C 538,128 540,138 542,148
+          C 544,158 546,168 548,178
+          C 550,188 552,198 554,208
+          C 556,218 556,228 554,238
+          C 552,248 548,258 546,268
+          C 544,276 543,284 542,292
+          C 541,302 542,312 540,322
+          C 538,332 534,340 532,350
+          C 530,360 530,370 530,380
+          C 530,390 530,400 528,408
+          C 526,418 522,428 516,436
+          C 510,444 502,450 494,454
+          C 486,458 478,460 470,462
+          C 462,464 454,464 446,462
+          C 438,460 430,456 422,456
+          C 414,456 406,460 398,464
+          C 390,468 382,474 374,478
+          C 366,482 358,484 350,484
+          C 342,484 334,482 326,480
+          C 318,478 310,476 302,478
+          C 294,480 286,486 278,490
+          C 270,494 262,498 254,500
+          C 246,502 238,500 230,498
+          C 222,496 214,492 206,490
+          C 198,488 190,488 182,490
+          C 174,492 166,498 158,502
+          C 150,506 142,510 134,514
+          C 126,518 118,520 110,520
+          C 96,520 78,520 60,518 Z
+        " fill="#c8ecd8" stroke="#1a7a4a" stroke-width="2.2" stroke-linejoin="round"></path>
+
+        <!-- Niger Delta southern protrusion -->
+        <path d="
+          M 230,498 C 228,510 228,524 224,534 C 220,542 214,548 210,554
+          C 206,560 204,566 206,570
+          M 270,494 C 268,508 266,522 262,532 C 258,540 252,546 250,554
+          M 302,478 C 304,490 306,504 308,516 C 310,524 314,532 316,540
+          C 318,548 318,556 314,562
+        " stroke="#1a7a4a" stroke-width="1.5" fill="none" opacity="0.5"></path>
+
+        <!-- Lake Chad – NE corner ~lon 13.2 lat 13.2 -->
+        <!-- x=(13.2-2.7)/12*580+60=568, y=(13.9-13.2)/9.7*480+50=85 -->
+        <ellipse cx="562" cy="90" rx="22" ry="16" fill="#7ec8e3" opacity="0.75"></ellipse>
+        <text x="562" y="87" text-anchor="middle" fill="#1a6080" font-size="7.5" font-family="sans-serif" font-weight="600">Lake</text>
+        <text x="562" y="96" text-anchor="middle" fill="#1a6080" font-size="7.5" font-family="sans-serif" font-weight="600">Chad</text>
+
+        <!-- River Niger: enters NW near lon 4.5 lat 13.5, flows SE through Kogi, then SW to delta -->
+        <path d="M 128,62 C 140,100 148,150 156,200 C 162,240 166,270 178,300 C 190,330 210,354 228,374 C 244,390 258,404 264,422 C 268,434 268,448 262,460 C 256,472 246,480 238,490" stroke="#5aade0" stroke-width="2.5" fill="none" opacity="0.45" stroke-dasharray="5,3"></path>
+
+        <!-- Benue River: flows W from east ~lon 13 lat 7.5 to confluence at Lokoja lon 6.7 lat 7.8 -->
+        <path d="M 528,388 C 490,384 460,376 430,370 C 400,364 370,358 340,356 C 310,354 290,358 270,362 C 258,364 248,368 240,374" stroke="#5aade0" stroke-width="2" fill="none" opacity="0.35" stroke-dasharray="4,3"></path>
+
+        <!-- === CITY MARKERS === -->
+        <!-- Coordinates: x=(lon-2.7)/12*580+60 ; y=(13.9-lat)/9.7*480+50 -->
+
+        <!-- Lagos lon=3.39 lat=6.45 → x=94, y=418 -->
+        <circle cx="94" cy="418" r="15" fill="#1a7a4a" opacity="0.9"></circle>
+        <circle cx="94" cy="418" r="22" fill="#1a7a4a" opacity="0.13"></circle>
+        <text x="94" y="422" text-anchor="middle" fill="white" font-size="9" font-weight="bold" font-family="sans-serif">Lagos</text>
+
+        <!-- Ibadan lon=3.9 lat=7.38 → x=119, y=374 -->
+        <circle cx="119" cy="374" r="11" fill="#2fa866" opacity="0.9"></circle>
+        <circle cx="119" cy="374" r="17" fill="#2fa866" opacity="0.13"></circle>
+        <text x="119" y="390" text-anchor="middle" fill="#1a7a4a" font-size="8" font-weight="700" font-family="sans-serif">Ibadan</text>
+
+        <!-- Abuja lon=7.49 lat=9.07 → x=272, y=286 -->
+        <circle cx="272" cy="286" r="11" fill="#2fa866" opacity="0.9"></circle>
+        <circle cx="272" cy="286" r="17" fill="#2fa866" opacity="0.13"></circle>
+        <text x="272" y="302" text-anchor="middle" fill="#1a7a4a" font-size="8" font-weight="700" font-family="sans-serif">Abuja ★</text>
+
+        <!-- Kano lon=8.52 lat=12.0 → x=322, y=136 -->
+        <circle cx="322" cy="136" r="9" fill="#b2ddc6" opacity="0.95"></circle>
+        <text x="322" y="152" text-anchor="middle" fill="#1a7a4a" font-size="8" font-weight="600" font-family="sans-serif">Kano</text>
+
+        <!-- Port Harcourt lon=7.01 lat=4.78 → x=249, y=468 -->
+        <circle cx="249" cy="455" r="8" fill="#2fa866" opacity="0.85"></circle>
+        <text x="249" y="471" text-anchor="middle" fill="#1a7a4a" font-size="8" font-weight="600" font-family="sans-serif">P. Harcourt</text>
+
+        <!-- Enugu lon=7.49 lat=6.46 → x=272, y=418 -->
+        <circle cx="305" cy="404" r="7" fill="#b2ddc6" opacity="0.9"></circle>
+        <text x="305" y="420" text-anchor="middle" fill="#1a7a4a" font-size="7.5" font-family="sans-serif">Enugu</text>
+
+        <!-- Benin City lon=5.63 lat=6.34 → x=181, y=424 -->
+        <circle cx="181" cy="416" r="7" fill="#b2ddc6" opacity="0.9"></circle>
+        <text x="181" y="432" text-anchor="middle" fill="#1a7a4a" font-size="7.5" font-family="sans-serif">Benin City</text>
+
+        <!-- Calabar lon=8.32 lat=4.95 → x=314, y=462 -->
+        <circle cx="356" cy="456" r="6" fill="#b2ddc6" opacity="0.85"></circle>
+        <text x="356" y="472" text-anchor="middle" fill="#1a7a4a" font-size="7" font-family="sans-serif">Calabar</text>
+
+        <!-- Maiduguri lon=13.16 lat=11.85 → x=566, y=156 -->
+        <circle cx="510" cy="160" r="7" fill="#b2ddc6" opacity="0.85"></circle>
+        <text x="510" y="176" text-anchor="middle" fill="#1a7a4a" font-size="7.5" font-family="sans-serif">Maiduguri</text>
+
+        <!-- Sokoto lon=5.23 lat=13.06 → x=157, y=80 -->
+        <circle cx="157" cy="82" r="6" fill="#b2ddc6" opacity="0.85"></circle>
+        <text x="157" y="98" text-anchor="middle" fill="#1a7a4a" font-size="7.5" font-family="sans-serif">Sokoto</text>
+
+        <!-- Kaduna lon=7.44 lat=10.52 → x=270, y=222 -->
+        <circle cx="270" cy="218" r="7" fill="#b2ddc6" opacity="0.85"></circle>
+        <text x="270" y="234" text-anchor="middle" fill="#1a7a4a" font-size="7.5" font-family="sans-serif">Kaduna</text>
+
+        <!-- Jos lon=8.89 lat=9.92 → x=337, y=248 -->
+        <circle cx="337" cy="248" r="6" fill="#b2ddc6" opacity="0.85"></circle>
+        <text x="337" y="264" text-anchor="middle" fill="#1a7a4a" font-size="7.5" font-family="sans-serif">Jos</text>
+
+        <!-- Warri lon=5.75 lat=5.52 → x=187, y=444 -->
+        <circle cx="187" cy="444" r="5" fill="#b2ddc6" opacity="0.8"></circle>
+        <text x="187" y="459" text-anchor="middle" fill="#1a7a4a" font-size="7" font-family="sans-serif">Warri</text>
+
+        <!-- Zaria lon=7.71 lat=11.07 → x=282, y=196 -->
+        <circle cx="282" cy="196" r="5" fill="#b2ddc6" opacity="0.75"></circle>
+        <text x="282" y="212" text-anchor="middle" fill="#1a7a4a" font-size="7" font-family="sans-serif">Zaria</text>
+
+        <!-- Compass -->
+        <text x="630" y="74" text-anchor="middle" fill="#1a7a4a" font-size="13" font-family="sans-serif" font-weight="700" opacity="0.5">N</text>
+        <line x1="630" y1="78" x2="630" y2="100" stroke="#1a7a4a" stroke-width="1.5" opacity="0.35"></line>
+        <text x="630" y="114" text-anchor="middle" fill="#1a7a4a" font-size="11" font-family="sans-serif" opacity="0.35">S</text>
+      </svg>
+      <div class="map-legend">
+        <div class="map-legend-item"><div class="legend-dot" style="background:#1a7a4a;"></div> High activity (10+ reports)</div>
+        <div class="map-legend-item"><div class="legend-dot" style="background:#2fa866;"></div> Medium activity (5–9)</div>
+        <div class="map-legend-item"><div class="legend-dot" style="background:#b2ddc6;"></div> Low activity (1–4)</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="margin-bottom: 20px;">Top Active LGAs</h3>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div><div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:6px;"><span>Ibadan North</span><strong>342</strong></div><div style="height:8px;background:var(--grey);border-radius:100px;"><div style="height:100%;width:90%;background:var(--green);border-radius:100px;"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:6px;"><span>Ogbomosho North</span><strong>218</strong></div><div style="height:8px;background:var(--grey);border-radius:100px;"><div style="height:100%;width:58%;background:var(--green);border-radius:100px;"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:6px;"><span>Ibadan South-West</span><strong>187</strong></div><div style="height:8px;background:var(--grey);border-radius:100px;"><div style="height:100%;width:50%;background:var(--green-light);border-radius:100px;"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:6px;"><span>Akinyele</span><strong>154</strong></div><div style="height:8px;background:var(--grey);border-radius:100px;"><div style="height:100%;width:40%;background:var(--green-mid);border-radius:100px;"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:6px;"><span>Ido</span><strong>98</strong></div><div style="height:8px;background:var(--grey);border-radius:100px;"><div style="height:100%;width:26%;background:var(--green-mid);border-radius:100px;"></div></div></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom: 20px;">Reports by Category</h3>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div style="width:48px;height:48px;background:#e3f0ff;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;">🧴</div>
+            <div style="flex:1;"><div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:6px;"><span>Plastic Waste</span><strong style="color:#2d7dd2;">1,204 (42%)</strong></div><div style="height:8px;background:var(--grey);border-radius:100px;"><div style="height:100%;width:42%;background:#2d7dd2;border-radius:100px;"></div></div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div style="width:48px;height:48px;background:var(--green-pale);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;">🍃</div>
+            <div style="flex:1;"><div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:6px;"><span>Organic Waste</span><strong style="color:var(--green);">883 (31%)</strong></div><div style="height:8px;background:var(--grey);border-radius:100px;"><div style="height:100%;width:31%;background:var(--green);border-radius:100px;"></div></div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div style="width:48px;height:48px;background:#fff3e0;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;">♻️</div>
+            <div style="flex:1;"><div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:6px;"><span>Mixed Waste</span><strong style="color:#e07b20;">760 (27%)</strong></div><div style="height:8px;background:var(--grey);border-radius:100px;"><div style="height:100%;width:27%;background:#e07b20;border-radius:100px;"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROFILE -->
+<div id="page-profile" class="page">
+  <div class="profile-header">
+    <div class="profile-avatar-lg">EI</div>
+    <div class="profile-name">Esther Iloka</div>
+    <div class="profile-lga">📍 Oshodi-Isolo LGA, Lagos State · Member since March 2026</div>
+  </div>
+  <div class="profile-content">
+    <div class="portfolio-card">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 28px; flex-wrap:wrap; gap: 16px;">
+        <h2 style="font-size: 1.4rem;">🏆 My Environmental Portfolio</h2>
+        <button class="btn btn-primary btn-sm" onclick="showToast(&#39;Portfolio PDF downloading... 📄&#39;)">⬇ Download PDF</button>
+      </div>
+      <div class="contribution-stats">
+        <div class="contrib-stat"><strong>12</strong><span>Cleanups Joined</span></div>
+        <div class="contrib-stat"><strong>7</strong><span>Waste Reports</span></div>
+        <div class="contrib-stat"><strong>~380kg</strong><span>Estimated Impact</span></div>
+      </div>
+      <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 16px;">Recent Activities</h3>
+      <div style="display:flex; flex-direction:column; gap: 12px;">
+        <div style="display:flex; align-items:center; gap: 14px; padding: 14px; background: var(--off-white); border-radius: 12px;">
+          <div style="font-size:1.5rem;">🌿</div>
+          <div style="flex:1;"><strong style="font-size:0.9rem;">Joined Agodi Gardens Clean-Up Drive</strong><br><span style="font-size:0.8rem; color:var(--text-muted);">15 March 2025 · Ibadan North</span></div>
+          <div class="badge badge-open">Completed</div>
+        </div>
+        <div style="display:flex; align-items:center; gap: 14px; padding: 14px; background: var(--off-white); border-radius: 12px;">
+          <div style="font-size:1.5rem;">📍</div>
+          <div style="flex:1;"><strong style="font-size:0.9rem;">Reported waste dump near UITH Road</strong><br><span style="font-size:0.8rem; color:var(--text-muted);">12 March 2025 · Ibadan North</span></div>
+          <div class="badge badge-open">Open</div>
+        </div>
+        <div style="display:flex; align-items:center; gap: 14px; padding: 14px; background: var(--off-white); border-radius: 12px;">
+          <div style="font-size:1.5rem;">🌿</div>
+          <div style="flex:1;"><strong style="font-size:0.9rem;">Joined Ibadan Waterway Restoration</strong><br><span style="font-size:0.8rem; color:var(--text-muted);">1 March 2025 · Ibadan South-West</span></div>
+          <div class="badge badge-open">Completed</div>
+        </div>
+      </div>
+    </div>
+    <div class="portfolio-card" style="background: linear-gradient(135deg, var(--green-pale), white);">
+      <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 16px;">📄 Where can I use my portfolio?</h3>
+      <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 20px;">Your CleanAble portfolio is a verified record of environmental contributions. Attach it to:</p>
+      <div class="tag-list">
+        <span class="tag">📋 Curriculum Vitae (CV)</span>
+        <span class="tag">🎓 Scholarship Applications</span>
+        <span class="tag">🏢 NGO Volunteer Roles</span>
+        <span class="tag">🏫 School Programs</span>
+        <span class="tag">🌍 Environmental Awards</span>
+        <span class="tag">💼 Youth Leadership Programs</span>
+      </div>
+      <button class="btn btn-green" onclick="showToast(&#39;Generating full PDF portfolio... 📋&#39;)">⬇ Export Full Portfolio as PDF</button>
+    </div>
+  </div>
+</div>
+
+<!-- OPPORTUNITIES -->
+<div id="page-opportunities" class="page">
+  <div class="page-header">
+    <h1>🏢 Opportunities</h1>
+    <p>Volunteer roles, partnerships, and sustainability programs from organisations across Nigeria.</p>
+  </div>
+  <div class="content-area" style="max-width: 860px;">
+    <div class="tabs" style="margin-bottom: 32px;">
+      <button class="tab-btn active">All</button>
+      <button class="tab-btn">Volunteer</button>
+      <button class="tab-btn">Sponsorship</button>
+      <button class="tab-btn">Youth Programs</button>
+    </div>
+    <div class="opp-card">
+      <div class="opp-logo">🌍</div>
+      <div class="opp-content">
+        <h3>Environmental Field Officer — West Nigeria</h3>
+        <div class="opp-org">EcoNigeria Foundation · Ibadan, Oyo State</div>
+        <div class="opp-tags"><span class="opp-tag">Volunteer</span><span class="opp-tag">Part-time</span><span class="opp-tag">Youth</span></div>
+        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">Coordinate waste reporting and cleanup activities in Oyo State LGAs. 8 hours/month commitment. Certificate issued on completion.</p>
+        <div class="opp-footer"><span class="deadline">📅 Deadline: 30 April 2025</span><button class="btn btn-green btn-sm" onclick="showToast(&#39;Application submitted! ✅&#39;)">Apply Now</button></div>
+      </div>
+    </div>
+    <div class="opp-card">
+      <div class="opp-logo" style="background:#e3f0ff;">💧</div>
+      <div class="opp-content">
+        <h3>Youth Environment Ambassador Programme</h3>
+        <div class="opp-org">WaterWatch Nigeria · Nationwide</div>
+        <div class="opp-tags"><span class="opp-tag">Youth Program</span><span class="opp-tag">Stipend</span><span class="opp-tag">Training</span></div>
+        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">6-month programme for Nigerians aged 16–28 to lead environmental campaigns in their LGAs. Monthly stipend + training provided.</p>
+        <div class="opp-footer"><span class="deadline">📅 Deadline: 15 May 2025</span><button class="btn btn-green btn-sm" onclick="showToast(&#39;Application submitted! ✅&#39;)">Apply Now</button></div>
+      </div>
+    </div>
+    <div class="opp-card">
+      <div class="opp-logo" style="background:#fff8e1;">♻️</div>
+      <div class="opp-content">
+        <h3>Sponsor a Community Cleanup Initiative</h3>
+        <div class="opp-org">CleanAble Partnership Programme · Nigeria</div>
+        <div class="opp-tags"><span class="opp-tag">Sponsorship</span><span class="opp-tag">Corporate</span><span class="opp-tag">CSR</span></div>
+        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">Partner with CleanAble to sponsor a cleanup event. Packages from ₦50,000. Brand visibility across platform and event materials.</p>
+        <div class="opp-footer"><span class="deadline">📅 Rolling applications</span><button class="btn btn-green btn-sm" onclick="showToast(&#39;Enquiry sent! 📧&#39;)">Enquire</button></div>
+      </div>
+    </div>
+    <div class="opp-card">
+      <div class="opp-logo" style="background:#f3e8ff;">🎓</div>
+      <div class="opp-content">
+        <h3>Sustainability Scholarship — University Applicants</h3>
+        <div class="opp-org">GreenFutures Nigeria Foundation · Nationwide</div>
+        <div class="opp-tags"><span class="opp-tag">Scholarship</span><span class="opp-tag">Full Award</span><span class="opp-tag">STEM</span></div>
+        <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;">Annual scholarship for applicants with proven community service record. CleanAble portfolio accepted as supporting evidence.</p>
+        <div class="opp-footer"><span class="deadline">📅 Deadline: 1 June 2025</span><button class="btn btn-green btn-sm" onclick="showToast(&#39;Application submitted! ✅&#39;)">Apply Now</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN -->
+<div id="page-admin" class="page">
+  <div class="admin-layout">
+    <div class="admin-sidebar">
+      <div style="padding: 16px 20px; border-bottom: 1px solid var(--grey); margin-bottom: 12px;">
+        <div style="font-family: &#39;Fraunces&#39;, serif; font-weight: 800; color: var(--green); font-size: 1.05rem;">CleanAble Admin</div>
+        <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 2px;">Super Administrator</div>
+      </div>
+      <ul class="sidebar-nav">
+        <li><button class="active" onclick="switchAdminSection(&#39;overview&#39;, this)">📊 Overview</button></li>
+        <li><button onclick="switchAdminSection(&#39;reports&#39;, this)">📍 Waste Reports</button></li>
+        <li><button onclick="switchAdminSection(&#39;events&#39;, this)">🌿 Cleanup Events</button></li>
+        <li><button onclick="switchAdminSection(&#39;communities&#39;, this)">🗺️ Communities</button></li>
+        <li><button onclick="switchAdminSection(&#39;users&#39;, this)">👥 Users</button></li>
+      </ul>
+    </div>
+    <div class="admin-main">
+      <div id="admin-overview">
+        <div class="admin-section-title">📊 Platform Overview</div>
+        <div class="admin-stat-row">
+          <div class="admin-stat"><div class="as-val">2,847</div><div class="as-lbl">Total Reports</div></div>
+          <div class="admin-stat"><div class="as-val">143</div><div class="as-lbl">Cleanup Events</div></div>
+          <div class="admin-stat"><div class="as-val">8,412</div><div class="as-lbl">Registered Users</div></div>
+          <div class="admin-stat"><div class="as-val">36</div><div class="as-lbl">Active LGAs</div></div>
+          <div class="admin-stat"><div class="as-val" style="color: var(--red);">14</div><div class="as-lbl">Flagged Reports</div></div>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <h3 style="margin-bottom:16px;">Recent Activity</h3>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <div style="display:flex;gap:12px;align-items:center;font-size:0.85rem;"><span>📍</span><span style="flex:1;">New report filed in Ibadan North</span><span style="color:var(--text-muted);font-size:0.78rem;">2m ago</span></div>
+              <div style="display:flex;gap:12px;align-items:center;font-size:0.85rem;"><span>👤</span><span style="flex:1;">New user registered — Ogbomosho South</span><span style="color:var(--text-muted);font-size:0.78rem;">8m ago</span></div>
+              <div style="display:flex;gap:12px;align-items:center;font-size:0.85rem;"><span>🌿</span><span style="flex:1;">New cleanup event created — Ido LGA</span><span style="color:var(--text-muted);font-size:0.78rem;">34m ago</span></div>
+              <div style="display:flex;gap:12px;align-items:center;font-size:0.85rem;"><span>🚩</span><span style="flex:1;color:var(--red);">Report flagged for review</span><span style="color:var(--text-muted);font-size:0.78rem;">1h ago</span></div>
+            </div>
+          </div>
+          <div class="card">
+            <h3 style="margin-bottom:16px;">Pending Actions</h3>
+            <div style="display:flex;flex-direction:column;gap:12px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:12px;background:#fde8e8;border-radius:10px;flex-wrap:wrap;gap:8px;">
+                <span style="font-size:0.88rem;">🚩 14 flagged reports need review</span>
+                <button class="btn btn-sm" style="background:#e03e3e;color:white;" onclick="switchAdminSection(&#39;reports&#39;, document.querySelector(&#39;.sidebar-nav li:nth-child(2) button&#39;))">Review</button>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:12px;background:#fff8e1;border-radius:10px;flex-wrap:wrap;gap:8px;">
+                <span style="font-size:0.88rem;">📋 3 organisations pending approval</span>
+                <button class="btn btn-sm" style="background:var(--accent);color:var(--text);" onclick="showToast(&#39;Opening org approvals...&#39;)">Review</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="admin-reports" style="display:none;">
+        <div class="admin-section-title">📍 Waste Reports</div>
+        <div class="data-table">
+          <table>
+            <thead><tr><th>ID</th><th>Reporter</th><th>LGA</th><th>Category</th><th>Status</th><th>Date</th><th>Actions</th></tr></thead>
+            <tbody>
+              <tr><td>#1024</td><td>Adaeze O.</td><td>Ibadan North</td><td><span class="badge badge-plastic">Plastic</span></td><td><span class="badge badge-open">Open</span></td><td>Mar 12</td><td style="display:flex;gap:8px;"><button class="btn btn-sm btn-grey" onclick="showToast(&#39;Report reviewed&#39;)">Review</button><button class="btn btn-sm btn-danger" onclick="showToast(&#39;Report flagged&#39;)">Flag</button></td></tr>
+              <tr><td>#1023</td><td>Kunle A.</td><td>Ogbomosho N.</td><td><span class="badge badge-organic">Organic</span></td><td><span class="badge badge-open">Open</span></td><td>Mar 11</td><td style="display:flex;gap:8px;"><button class="btn btn-sm btn-grey" onclick="showToast(&#39;Report reviewed&#39;)">Review</button><button class="btn btn-sm btn-danger" onclick="showToast(&#39;Report flagged&#39;)">Flag</button></td></tr>
+              <tr><td>#1022</td><td>Fatima N.</td><td>Ido LGA</td><td><span class="badge badge-mixed">Mixed</span></td><td><span class="badge badge-flagged">🚩 Flagged</span></td><td>Mar 9</td><td style="display:flex;gap:8px;"><button class="btn btn-sm btn-grey" onclick="showToast(&#39;Report resolved&#39;)">Resolve</button><button class="btn btn-sm btn-danger" onclick="showToast(&#39;Report removed&#39;)">Remove</button></td></tr>
+              <tr><td>#1021</td><td>Emeka O.</td><td>Akinyele</td><td><span class="badge badge-plastic">Plastic</span></td><td><span class="badge badge-open">Open</span></td><td>Mar 8</td><td style="display:flex;gap:8px;"><button class="btn btn-sm btn-grey" onclick="showToast(&#39;Report reviewed&#39;)">Review</button><button class="btn btn-sm btn-danger" onclick="showToast(&#39;Report flagged&#39;)">Flag</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div id="admin-events" style="display:none;">
+        <div class="admin-section-title">🌿 Cleanup Events</div>
+        <div class="data-table">
+          <table>
+            <thead><tr><th>Event</th><th>Organiser</th><th>LGA</th><th>Date</th><th>Volunteers</th><th>Actions</th></tr></thead>
+            <tbody>
+              <tr><td>Agodi Gardens Clean-Up</td><td>EcoNigeria Foundation</td><td>Ibadan North</td><td>Mar 15</td><td>34</td><td><button class="btn btn-sm btn-grey" onclick="showToast(&#39;Event approved ✅&#39;)">Approve</button></td></tr>
+              <tr><td>Ibadan Waterway Restoration</td><td>WaterWatch Nigeria</td><td>Ibadan SW</td><td>Mar 22</td><td>19</td><td><button class="btn btn-sm btn-grey" onclick="showToast(&#39;Event approved ✅&#39;)">Approve</button></td></tr>
+              <tr><td>Ogbomosho Market Cleanup</td><td>Ogbomosho Youth Initiative</td><td>Ogbomosho N.</td><td>Mar 29</td><td>52</td><td><button class="btn btn-sm btn-grey" onclick="showToast(&#39;Event approved ✅&#39;)">Approve</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div id="admin-communities" style="display:none;">
+        <div class="admin-section-title">🗺️ Active Communities</div>
+        <div class="data-table">
+          <table>
+            <thead><tr><th>LGA</th><th>State</th><th>Reports</th><th>Volunteers</th><th>Events</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>Ibadan North</td><td>Oyo</td><td>342</td><td>1,840</td><td>24</td><td><span class="badge badge-open">Active</span></td></tr>
+              <tr><td>Ogbomosho North</td><td>Oyo</td><td>218</td><td>960</td><td>15</td><td><span class="badge badge-open">Active</span></td></tr>
+              <tr><td>Ibadan South-West</td><td>Oyo</td><td>187</td><td>820</td><td>12</td><td><span class="badge badge-open">Active</span></td></tr>
+              <tr><td>Akinyele</td><td>Oyo</td><td>154</td><td>670</td><td>9</td><td><span class="badge badge-open">Active</span></td></tr>
+              <tr><td>Ido</td><td>Oyo</td><td>98</td><td>420</td><td>6</td><td><span class="badge badge-open">Active</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div id="admin-users" style="display:none;">
+        <div class="admin-section-title">👥 User Management</div>
+        <div class="data-table">
+          <table>
+            <thead><tr><th>Name</th><th>LGA</th><th>Type</th><th>Reports</th><th>Cleanups</th><th>Joined</th><th>Actions</th></tr></thead>
+            <tbody>
+              <tr><td>Adaeze Okonkwo</td><td>Ibadan North</td><td>Member</td><td>7</td><td>12</td><td>Jan 2025</td><td><button class="btn btn-sm btn-grey" onclick="showToast(&#39;User profile opened&#39;)">View</button></td></tr>
+              <tr><td>Kunle Adeleke</td><td>Ogbomosho N.</td><td>Member</td><td>5</td><td>8</td><td>Feb 2025</td><td><button class="btn btn-sm btn-grey" onclick="showToast(&#39;User profile opened&#39;)">View</button></td></tr>
+              <tr><td>WaterWatch Nigeria</td><td>Nationwide</td><td>Organisation</td><td>—</td><td>6 events</td><td>Dec 2024</td><td><button class="btn btn-sm btn-grey" onclick="showToast(&#39;Org profile opened&#39;)">View</button></td></tr>
+              <tr><td>Fatima Nwosu</td><td>Ido LGA</td><td>Member</td><td>3</td><td>5</td><td>Feb 2025</td><td><button class="btn btn-sm btn-grey" onclick="showToast(&#39;User profile opened&#39;)">View</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CREATE EVENT MODAL -->
+<div class="modal-overlay" id="create-event-modal">
+  <div class="modal">
+    <h2>🌿 Create Cleanup Event</h2>
+    <p>Fill in the details to post your cleanup initiative to the community feed.</p>
+    <div class="form-group"><label>Event Title</label><input type="text" placeholder="e.g. Ibadan Central Park Cleanup"></div>
+    <div class="form-row">
+      <div class="form-group"><label>State</label><select><option>Oyo</option><option>Lagos</option><option>Abuja</option></select></div>
+      <div class="form-group"><label>LGA</label><select><option>Ibadan North</option><option>Ibadan South-West</option><option>Akinyele</option></select></div>
+    </div>
+    <div class="form-group"><label>Event Date</label><input type="date"></div>
+    <div class="form-group"><label>Description</label><textarea placeholder="Describe the event, what to bring, what participants can expect..."></textarea></div>
+    <div class="modal-actions">
+      <button class="btn btn-grey" onclick="closeModal(&#39;create-event-modal&#39;)">Cancel</button>
+      <button class="btn btn-green" onclick="closeModal(&#39;create-event-modal&#39;); showToast(&#39;Cleanup event created! 🎉&#39;)">Create Event</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast" style="position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--text);color:white;padding:14px 28px;border-radius:100px;font-size:0.92rem;font-weight:600;z-index:9999;transition:all 0.35s cubic-bezier(.34,1.56,.64,1);opacity:0;pointer-events:none;white-space:nowrap;max-width:90vw;text-align:center;"></div>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  const nb = document.getElementById('nav-' + id);
+  if (nb) nb.classList.add('active');
+  window.scrollTo(0, 0);
+}
+function switchAuthTab(tab) {
+  document.getElementById('tab-signup').classList.toggle('active', tab==='signup');
+  document.getElementById('tab-login').classList.toggle('active', tab==='login');
+  document.getElementById('signup-form').style.display = tab==='signup' ? 'block' : 'none';
+  document.getElementById('login-form').style.display = tab==='login' ? 'block' : 'none';
+}
+function selectCategory(el) {
+  document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('selected'));
+  el.classList.add('selected');
+}
+function submitReport() {
+  const s = document.getElementById('report-success');
+  s.style.display = 'flex';
+  s.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  setTimeout(() => { s.style.display = 'none'; }, 5000);
+}
+function joinEvent(btn) {
+  btn.textContent = '✅ Joined!';
+  btn.style.background = 'var(--green-pale)';
+  btn.style.color = 'var(--green)';
+  btn.disabled = true;
+  showToast('You\'ve joined this cleanup! 🌿');
+}
+function switchAdminSection(section, btn) {
+  ['overview','reports','events','communities','users'].forEach(s => {
+    const el = document.getElementById('admin-' + s);
+    if (el) el.style.display = 'none';
+  });
+  const target = document.getElementById('admin-' + section);
+  if (target) target.style.display = 'block';
+  document.querySelectorAll('.sidebar-nav button').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+}
+function openModal(id) { document.getElementById(id).classList.add('open'); }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.opacity = '1';
+  t.style.transform = 'translateX(-50%) translateY(0)';
+  setTimeout(() => { t.style.opacity = '0'; t.style.transform = 'translateX(-50%) translateY(80px)'; }, 3000);
+}
+document.querySelectorAll('.tabs').forEach(tabs => {
+  tabs.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      tabs.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+});
+</script>
+
+
+</body></html>
